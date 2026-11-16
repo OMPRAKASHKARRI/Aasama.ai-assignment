@@ -1,0 +1,15 @@
+# Infrastructure only (Postgres + pgvector, Redis). Run the API/worker/frontend on the host per README.
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_USER: agentnet
+      POSTGRES_PASSWORD: agentnet
+      POSTGRES_DB: agentnet
+    ports: ["5432:5432"]
+    volumes: ["pgdata:/var/lib/postgresql/data"]
+  redis:
+    image: redis:7-alpine
+    ports: ["6379:6379"]
+volumes:
+  pgdata:

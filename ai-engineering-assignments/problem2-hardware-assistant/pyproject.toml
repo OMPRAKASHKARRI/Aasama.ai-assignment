@@ -1,0 +1,21 @@
+[project]
+name = "hwassist"
+version = "1.0.0"
+description = "Local Linux hardware Q&A assistant with strict allow-listed tool calling"
+requires-python = ">=3.11"
+dependencies = ["typer>=0.15", "rich>=13.9", "pydantic>=2.10", "pydantic-settings>=2.7", "httpx>=0.28"]
+
+[project.scripts]
+hwassist = "hwassist.cli:app"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+addopts = "-q"
